@@ -107,12 +107,24 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      return false; // fixme
+      var hasConflict = _.reduce(this.rows(), (memo, row) => memo = memo + row[colIndex], 0);
+      if (hasConflict > 1) {
+        return true;
+      } else {
+        return false;
+      }
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
-      return false; // fixme
+      var colConflicts = _.map(this.rows(), function(row, index) {
+        return this.hasColConflictAt(index);
+      }, this);
+      if (_.indexOf(colConflicts, true) >= 0) {
+        return true;
+      } else {
+        return false;
+      }
     },
 
 
