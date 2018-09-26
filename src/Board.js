@@ -89,7 +89,15 @@
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      return false; // fixme
+      var rowConflicts = _.map(this.rows(), function(row, index) {
+        return this.hasRowConflictAt(index);
+      }, this);
+
+      if (_.indexOf(rowConflicts, true) >= 0) {
+        return true;
+      } else {
+        return false;
+      }
     },
 
 
