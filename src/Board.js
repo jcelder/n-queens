@@ -138,8 +138,8 @@
       //left top corner
       var counter = 0;
       for (var i = 0; i < this.get('n'); i++) {
-      var x = i + majorDiagonalColumnIndexAtFirstRow
-      // both get incremented
+        var x = i + majorDiagonalColumnIndexAtFirstRow;
+        // both get incremented
         if (i < 0) {
           continue;
         }
@@ -152,9 +152,9 @@
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
       for (var i = -1 * this.get('n'); i < this.get('n') - 1; i++) {
-          if (this.hasMajorDiagonalConflictAt(i)) {
-            return true;
-          }
+        if (this.hasMajorDiagonalConflictAt(i)) {
+          return true;
+        }
       }
       return false;
     },
@@ -169,7 +169,7 @@
       var counter = 0;
       for (var i = 0; i < this.get('n'); i++) {
         var x = minorDiagonalColumnIndexAtFirstRow - i;
-      // both get incremented
+        // both get incremented
         if (i > this.get('n')) {
           continue;
         }
